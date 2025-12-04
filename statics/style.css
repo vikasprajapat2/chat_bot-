@@ -1,0 +1,172 @@
+:root {
+    --primary-color: #00f3ff;
+    --secondary-color: #bc13fe;
+    --bg-color: #050510;
+    --chat-bg: #0a0a1f;
+    --text-color: #e0e0e0;
+    --user-msg-bg: #bc13fe;
+    --bot-msg-bg: #1a1a3d;
+    --input-bg: #13132b;
+    --border-color: #2a2a5a;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 800px;
+    height: 90vh;
+    background-color: var(--chat-bg);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2), 0 0 40px rgba(188, 19, 254, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.chat-header {
+    padding: 20px;
+    background: linear-gradient(90deg, rgba(0, 243, 255, 0.1), rgba(188, 19, 254, 0.1));
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nexa-logo {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scroll-behavior: smooth;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 15px;
+    line-height: 1.5;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+    background: linear-gradient(135deg, var(--secondary-color), #8a00d4);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 4px 15px rgba(188, 19, 254, 0.3);
+}
+
+.bot-message {
+    background-color: var(--bot-msg-bg);
+    color: var(--text-color);
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bot-message::before {
+    content: 'NEXA';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 10px;
+    color: var(--primary-color);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.input-container {
+    padding: 20px;
+    background-color: var(--chat-bg);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, var(--primary-color), #00a8ff);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--chat-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
