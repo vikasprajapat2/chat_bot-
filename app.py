@@ -3,6 +3,9 @@ import traceback
 import logging
 from flask import Flask, request, jsonify, render_template
 import google.generativeai as genai
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__, static_folder='statics', static_url_path='/static')
 
